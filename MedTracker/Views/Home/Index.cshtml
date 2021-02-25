@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div class="border-top card-body text-center">Register as User <a asp-area="Identity" asp-page="/Account/AccountNotActivated">Register as User</a></div>
+<div class="border-top card-body text-center">Register as User <a asp-controller="Identity" asp-action="AccountNotCreated">Register as User</a></div>
+<a asp-area="Admin" asp-controller="Admin" asp-action="Index">Go to Admin Area</a>  

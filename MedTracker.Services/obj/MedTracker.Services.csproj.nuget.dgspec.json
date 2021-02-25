@@ -1,0 +1,326 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Services\\MedTracker.Services.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Data\\MedTracker.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Data\\MedTracker.Data.csproj",
+        "projectName": "MedTracker.Data",
+        "projectPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Data\\MedTracker.Data.csproj",
+        "packagesPath": "C:\\Users\\dimitar.sotirov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dimitar.sotirov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {
+              "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Models\\MedTracker.Models.csproj": {
+                "projectPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Models\\MedTracker.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Models\\MedTracker.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Models\\MedTracker.Models.csproj",
+        "projectName": "MedTracker.Models",
+        "projectPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Models\\MedTracker.Models.csproj",
+        "packagesPath": "C:\\Users\\dimitar.sotirov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dimitar.sotirov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.11, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Services.Models\\MedTracker.Services.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Services.Models\\MedTracker.Services.Models.csproj",
+        "projectName": "MedTracker.Services.Models",
+        "projectPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Services.Models\\MedTracker.Services.Models.csproj",
+        "packagesPath": "C:\\Users\\dimitar.sotirov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Services.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dimitar.sotirov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {
+              "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Models\\MedTracker.Models.csproj": {
+                "projectPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Models\\MedTracker.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Services\\MedTracker.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Services\\MedTracker.Services.csproj",
+        "projectName": "MedTracker.Services",
+        "projectPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Services\\MedTracker.Services.csproj",
+        "packagesPath": "C:\\Users\\dimitar.sotirov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dimitar.sotirov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {
+              "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Data\\MedTracker.Data.csproj": {
+                "projectPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Data\\MedTracker.Data.csproj"
+              },
+              "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Models\\MedTracker.Models.csproj": {
+                "projectPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Models\\MedTracker.Models.csproj"
+              },
+              "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Services.Models\\MedTracker.Services.Models.csproj": {
+                "projectPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Services.Models\\MedTracker.Services.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

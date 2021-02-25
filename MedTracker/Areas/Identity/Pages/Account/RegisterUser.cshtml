@@ -1,0 +1,148 @@
+﻿@page
+@model RegisterUser
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <header class="card-header">
+                    <a asp-area="Identity" asp-page="/Account/Login" class="float-right btn btn-outline-primary mt-1">Log in</a>
+                    <h4 class="card-title mt-2">Register</h4>
+                </header>
+                <article class="card-body">
+                    <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                        <div class="form-row">
+                            <p class="text-secondary">Fields with * are required!</p>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group mr-2">
+                                <label>*First Name</label>
+                                <input asp-for="Input.FirstName" class="form-control" />
+                                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group">
+                                <label>Middle Name</label>
+                                <input asp-for="Input.MiddleName" class="form-control" />
+                                <span asp-validation-for="Input.MiddleName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mr-2">
+                                <label>*Last Name</label>
+                                <input asp-for="Input.LastName" class="form-control" />
+                                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group ">
+                                <label>*Birthdate :</label>
+                                <input asp-for="Input.Birthdate" class="form-control" type="date">
+                                <span asp-validation-for="Input.Birthdate" class="text-danger"></span>
+                            </div>
+                        </div> <!-- form-row end.// -->
+                        <div class="form-group">
+                            <label>*Email</label>
+                            <input asp-for="Input.Email" class="form-control" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input asp-for="Input.PhoneNumber" class="form-control" />
+                            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>*Gender: </label>
+                            <label class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" value="1">
+                                <span class="form-check-label"> Male </span>
+                            </label>
+
+                            <label class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" value="0">
+                                <span class="form-check-label"> Female</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                          
+                            <label>*Are you inssured?</label>
+                            <label class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="insured" value="0">
+                                <span class="form-check-label"> No </span>
+                            </label>
+
+                            <label class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="insured" value="1">
+                                <span class="form-check-label"> Yes</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>*Password</label>
+                            <input asp-for="Input.Password" class="form-control" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>*Confirm Password</label>
+                            <input asp-for="Input.ConfirmPassword" class="form-control" />
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block"> Register  </button>
+                        </div> <!-- form-group// -->
+                        <small class="text-muted">By clicking the 'Register' button, you confirm that you accept our <br> Terms of use and Privacy Policy.</small>
+                    </form>
+                </article> <!-- card-body end .// -->
+                <div class="border-top card-body text-center">Have an account? <a asp-area="Identity" asp-page="/Account/Login">Log In</a></div>
+            </div> <!-- card.// -->
+        </div> <!-- col.//-->
+
+    </div> <!-- row.//-->
+
+
+</div>
+<!--container end.//-->
+
+
+
+<div class="col-md-6 col-md-offset-2">
+    <section>
+
+        <hr />
+        @{
+            if ((Model.ExternalLogins?.Count ?? 0) == 0)
+            {
+
+
+            }
+            else
+            {
+                <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                    <div>
+                        <p>
+                            @foreach (var provider in Model.ExternalLogins)
+                            {
+                                <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                            }
+                        </p>
+                    </div>
+                </form>
+            }
+        }
+    </section>
+</div>
+<div class="p-3 mb-2 bg-secondary text-white text-center">
+    <p>
+        <h4>Are you a doctor?</h4>
+        If you want to register as doctor you need to register from Here:   
+        <a class="btn btn-outline-light my-2 my-sm-0" type="submit" asp-area="Identity" asp-page="/Account/RegisterDoctor">Click here</a>
+    </p>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+

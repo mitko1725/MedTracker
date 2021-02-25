@@ -1,0 +1,92 @@
+﻿@model MedTracker.Web.Areas.Admin.ViewModels.DetailsDoctorViewModel;
+<link rel="stylesheet" href="~/css/adminIndex.css">
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>Sidebar</h2>
+        <ul>
+
+            <li><a asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i>Home Page</a></li>
+            <li><a asp-area="Admin" asp-controller="Admin" asp-action="ApproveDoctors"><i class="fas fa-user"></i>Pending Doctor Profiles</a></li>
+            <li><a asp-area="Admin" asp-controller="Admin" asp-action="Specializations"><i class="fas fa-address-card"></i>Doctor Specializations</a></li>
+            <li><a href="#"><i class="fas fa-project-diagram"></i></a></li>
+            <li><a href="#"><i class="fas fa-blog"></i></a></li>
+            <li><a href="#"><i class="fas fa-address-book"></i></a></li>
+            <li><a href="#"><i class="fas fa-map-pin"></i></a></li>
+        </ul>
+
+    </div>
+
+    <div class="main_content">
+
+        <div class="MyContainer">
+            <div>
+                <div>
+                    <h1>
+                        Doctor Details:
+                    </h1>
+                </div>
+
+                <table class="table table-bordered ">
+                    <tbody>
+                        <tr>
+                            <td class="success"><h4>User ID: </h4> </td>
+                            <td>@Model.UserDoctor.Id</td>
+                        </tr>
+                        <tr>
+                            <td class="success"><h4>Full Name:</h4> </td>
+                            <td>@Model.Doctor.FirstName @Model.Doctor.MiddleName @Model.Doctor.LastName </td>
+                        </tr>
+                        <tr>
+                            <td class="success"><h4>Phone Number:</h4> </td>
+                            <td>@Model.UserDoctor.PhoneNumber</td>
+                        </tr>
+                        <tr>
+                            <td class="success"><h4>Email:</h4> </td>
+                            <td>@Model.UserDoctor.Email</td>
+                        </tr>
+                        <tr>
+                            <td class="success"><h4>Biography:</h4> </td>
+                            <td>@Model.Doctor.Biography</td>
+                        </tr>
+                        <tr>
+                            <td class="success"><h4>Gender:</h4> </td>
+                            <td>@Model.Doctor.Gender</td>
+                        </tr>
+                        <tr>
+                            <td class="success"><h4>Profile Picture:</h4> </td>
+                            <td>@Model.Doctor.ProfilePic</td>
+
+
+
+                        </tr>
+
+                    </tbody>
+                </table>
+                    <button id="approveButton" class="btn  btn-outline-success  btn-lg mr-4 " type="submit" style="width:48%;">Approve</button>
+                <button id="rejectButton" class="btn  btn-outline-danger  btn-lg"  style="width:48%;" href="">Reject</button>
+                <form asp-action="Approve" id="approveDocForm">
+                    <input type="hidden" name="userId" value="@Model.UserDoctor.Id">
+                </form>
+                <br />
+                <br />
+
+
+                <form asp-action="Reject" id="rejectDocForm">   
+                    <input type="hidden" name="userId" value="@Model.UserDoctor.Id">
+                    </form>
+              
+               
+                <a asp-area="Admin" asp-controller="Admin" asp-action="ApproveDoctors" class="btn  btn-outline-secondary  btn-lg" type="submit" style="width:98%;">Back to list</a>
+            </div>
+          
+            
+
+        </div>
+
+
+
+
+
+
+    </div>
+</div>

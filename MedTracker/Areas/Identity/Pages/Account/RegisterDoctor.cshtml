@@ -1,0 +1,157 @@
+﻿@page
+@model RegisterDoctor
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <header class="card-header">
+                    <a asp-area="Identity" asp-page="/Account/Login" class="float-right btn btn-outline-primary mt-1">Log in</a>
+                    <h4 class="card-title mt-2">Register as DOCTOR</h4>
+                </header>
+                <article class="card-body">
+                    <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                        <div class="form-row">
+                            <p class="text-secondary">Fields with * are required!</p>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group mr-2">
+                                <label>*First Name</label>
+                                <input asp-for="Input.FirstName" class="form-control" />
+                                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group">
+                                <label>Middle Name</label>
+                                <input asp-for="Input.MiddleName" class="form-control" />
+                                <span asp-validation-for="Input.MiddleName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mr-2">
+                                <label>*Last Name</label>
+                                <input asp-for="Input.LastName" class="form-control" />
+                                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                            </div>
+                        </div> <!-- form-row end.// -->
+                        <div class="form-group">
+                            <label>*Email</label>
+                            <input asp-for="Input.Email" class="form-control" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>*Phone Number</label>
+                            <input asp-for="Input.PhoneNumber" class="form-control" />
+                            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                          
+                            <label>*Gender: </label>
+                            <label class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" value="1">
+                                <span class="form-check-label"> Male </span>
+                            </label>
+
+                            <label class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" value="0">
+                                <span class="form-check-label"> Female</span>
+                            </label>
+                        </div>
+                        @*<div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Input.ProfilePic" class="control-label"></label>
+                                <div class="custom-file">
+                                    <input asp-for="Input.ProfilePic" class="custom-file-input" type="file">
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
+                                <span asp-validation-for="Input.ProfilePic" class="text-danger"></span>
+                            </div>
+                        </div>*@
+                        <div class="form-group">
+                            <label>Biography</label>
+                            <textarea cols="50" rows="3" asp-for="Input.Biography">  
+                            </textarea>
+                            <span asp-validation-for="Input.Biography" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>*Password</label>
+                            <input asp-for="Input.Password" class="form-control" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>*Confirm Password</label>
+                            <input asp-for="Input.ConfirmPassword" class="form-control" />
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block"> Register as Doctor  </button>
+                        </div> <!-- form-group// -->
+                        <small class="text-muted">By clicking the 'Register' button, you confirm that you accept our <br> Terms of use and Privacy Policy.</small>
+                        <br>
+                        <small class="text-muted">After the registration, we will contact you on provided phone number in order to activate your account.</small>
+                    </form>
+                </article> <!-- card-body end .// -->
+                <div class="border-top card-body text-center">Have an account? <a asp-area="Identity" asp-page="/Account/Login">Log In</a></div>
+                <div class="border-top card-body text-center">Register as User <a asp-area="Identity" asp-page="/Account/RegisterUser">Register as User</a></div>
+            </div> <!-- card.// -->
+        </div> <!-- col.//-->
+
+    </div> <!-- row.//-->
+
+
+</div>
+<!--container end.//-->
+
+
+
+<div class="col-md-6 col-md-offset-2">
+    <section>
+
+        <hr />
+        @{
+            if ((Model.ExternalLogins?.Count ?? 0) == 0)
+            {
+
+
+            }
+            else
+            {
+                <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                    <div>
+                        <p>
+                            @foreach (var provider in Model.ExternalLogins)
+                            {
+                                <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                            }
+                        </p>
+                    </div>
+                </form>
+            }
+        }
+    </section>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<script type="text/javascript">
+    // Add the following code if you want the name of the file appear on select
+    $(".custom-file-input").on("change", function () {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+
+      
+
+
+
+    });
+
+
+    
+ 
+</script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">

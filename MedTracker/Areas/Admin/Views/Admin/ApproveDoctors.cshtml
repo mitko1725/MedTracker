@@ -1,0 +1,129 @@
+﻿@model MedTracker.Web.Areas.Admin.ViewModels.NotActiveDoctorsViewModel;
+<link rel="stylesheet" href="~/css/adminIndex.css">
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>Sidebar</h2>
+        <ul>
+
+            <li><a asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i>Home Page</a></li>
+            <li><a asp-area="Admin" asp-controller="Admin" asp-action="ApproveDoctors"><i class="fas fa-user"></i>Pending Doctor Profiles</a></li>
+            <li><a asp-area="Admin" asp-controller="Admin" asp-action="Specializations"><i class="fas fa-address-card"></i>Doctor Specializations</a></li>
+            <li><a href="#"><i class="fas fa-project-diagram"></i></a></li>
+            <li><a href="#"><i class="fas fa-blog"></i></a></li>
+            <li><a href="#"><i class="fas fa-address-book"></i></a></li>
+            <li><a href="#"><i class="fas fa-map-pin"></i></a></li>
+        </ul>
+
+    </div>
+
+    <div class="main_content">
+
+
+
+                <table class="table table-bordered">
+                  
+                    <tr>
+                        <th>
+                            UserId :
+                        </th>
+                        <th>
+                            Doctor Full Name :
+                        </th>
+                        <th>
+                            UserName:
+                        </th>
+                        <th>
+                            PhoneNumber:
+                        </th>
+                        <th>
+                            Details:
+                        </th>
+                    </tr>
+
+        @if (Model.Doctors.Count() != 0)
+        {
+                       
+            @foreach (var doc in Model.Doctors)
+            {
+                    var userId = Model.UserDoctors.Where(x => x.Id == doc.UserId).FirstOrDefault();
+                    <tr>
+
+                        <td>
+                            @doc.UserId
+                        </td>
+
+                        <td>
+                            @doc.FirstName @doc.MiddleName @doc.LastName
+                        </td>
+                        <td>
+                            @userId.UserName
+                        </td>
+                        <td>
+                            @userId.PhoneNumber
+                        </td>
+                        <td>
+
+                            <a asp-area="Admin"
+                               asp-controller="Admin"
+                               asp-action="Details"
+                               asp-route-id="@doc.UserId" class="btn btn-secondary"> Details</a>
+                        </td>
+                    </tr>
+              
+                    }
+                    }
+                    else
+                    {
+                    <h1 style="text-align:center">There are no new Doctor Accounts</h1>
+                    }
+                    </table>
+
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+
+                        @if (!Model.PreviousDisabled)
+                        {
+                            <a href="~/Admin/Admin/ApproveDoctors?page=@Model.PreviousPage" class="float-left btn btn-outline-info my-2 my-sm-0" style="margin-right:1%;">Previous Page</a>
+                        }
+                        @if (Model.MaxPage != 1 && Model.MaxPage != 0)
+                        {
+
+                            @for (int i = 1; i <= Model.MaxPage; i++)
+                            {
+                                @if (i > 9)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link">...</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a href="~/Admin/Admin/ApproveDoctors?page=@Model.MaxPage" class="page-link">@Model.MaxPage</a>
+                                    </li>
+                                    break;
+                                }
+                                <li class="page-item ">
+                                    <a href="~/Admin/Admin/ApproveDoctors?page=@i" class="page-link ">@i</a>
+                                </li>
+                            }
+
+                        }
+                        @if (!Model.NextDisabled)
+                        {
+
+                            <a href="~/Admin/Admin/ApproveDoctors?page=@Model.NextPage" class="float-right btn btn-outline-info my-2 my-sm-0" style="margin-left:1%;">Next Page</a>
+                        }
+                    </ul>
+                </nav>
+
+                <br>
+                <br>
+                <br>
+                <br>
+
+
+
+            </div>
+
+
+
+    </div>
