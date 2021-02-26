@@ -1,0 +1,87 @@
+﻿@page
+@model MedTracker.Web.Areas.Identity.Pages.Account.Manage.Info
+@{
+}
+
+<h4>@ViewData["Title"]</h4>
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+<div class="container">
+    <div class="row">
+        <div class="container">
+            @if (Model.Input.Role == "Doctor")
+            {
+            <form id="profile-form" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Input.FirstName" class="control-label"></label>
+                    <input asp-for="Input.FirstName" class="form-control mb-2" required />
+                    <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.MiddleName" class="control-label"></label>
+                    <input asp-for="Input.MiddleName" class="form-control mb-2" required />
+                    <span asp-validation-for="Input.MiddleName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.LastName" class="control-label"></label>
+                    <input asp-for="Input.LastName" class="form-control mb-2" required />
+                    <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Gender</label>
+                    <input asp-for="Input.Gender" class="form-control" disabled />
+                </div>
+                <div class="form-group">
+                    <label>Biography</label>
+                    <br>
+                    <textarea cols="81" rows="3" asp-for="Input.Biography">  
+                            </textarea>
+                    <span asp-validation-for="Input.Biography" class="text-danger"></span>
+                </div>
+                <button id="update-profile-button" type="submit" class="btn btn-outline-primary btn-block">Save</button>
+            </form>
+            }
+            else if (Model.Input.Role == "Patient")
+            {
+        <form id="profile-form" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.FirstName" class="control-label"></label>
+                <input asp-for="Input.FirstName" class="form-control mb-2" required />
+                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.MiddleName" class="control-label"></label>
+                <input asp-for="Input.MiddleName" class="form-control mb-2" required />
+                <span asp-validation-for="Input.MiddleName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.LastName" class="control-label"></label>
+                <input asp-for="Input.LastName" class="form-control mb-2" required />
+                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            </div>
+         
+            <div class="form-group">
+                <label>Gender</label>
+                <input asp-for="Input.Gender" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                @*CHANGE IF INSURED With SELECT*@
+                <label>Insured</label>
+                <input asp-for="Input.Insured" class="form-control"  />
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.BirthDate"></label>
+                <input asp-for="Input.BirthDate" class="form-control" type="date" />
+                <span asp-validation-for="Input.BirthDate" class="text-danger"></span>
+            </div>
+            <br>
+            <button id="update-profile-button" type="submit" class="btn btn-outline-primary btn-block">Save</button>
+        </form>
+            }
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

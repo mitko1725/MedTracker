@@ -49,6 +49,7 @@ namespace MedTracker
 
             services.AddTransient<IRegisterService, RegisterService>();
             services.AddTransient<IAdminService, AdminService>();
+            services.AddTransient<IIdentityService, IdentityService>();
 
 
 

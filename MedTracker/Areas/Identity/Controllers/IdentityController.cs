@@ -7,20 +7,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MedTracker.Web.Areas.Identity.Controllers
 {
-    [AllowAnonymous]
+  [AllowAnonymous]
     [Area("Identity")]
     public class IdentityController : Controller
     {
-        [Authorize(Roles = "Doctor")]
+        public IdentityController()
+        {
+
+        }
+     
         public IActionResult AccountNotActivated()
         {
             return View();
         }
-
-        public IActionResult Test()
-        {
-            return View();
-        }
+    
 
     }
 }

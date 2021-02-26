@@ -8954,11 +8954,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker\\MedTracker.Web.csproj",
+      "projectUniqueName": "C:\\Users\\dimitar.sotirov\\Desktop\\MedTracker\\New folder\\MedTracker\\MedTracker\\MedTracker.Web.csproj",
       "projectName": "MedTracker.Web",
-      "projectPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker\\MedTracker.Web.csproj",
+      "projectPath": "C:\\Users\\dimitar.sotirov\\Desktop\\MedTracker\\New folder\\MedTracker\\MedTracker\\MedTracker.Web.csproj",
       "packagesPath": "C:\\Users\\dimitar.sotirov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker\\obj\\",
+      "outputPath": "C:\\Users\\dimitar.sotirov\\Desktop\\MedTracker\\New folder\\MedTracker\\MedTracker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -8979,17 +8979,17 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Data\\MedTracker.Data.csproj": {
-              "projectPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Data\\MedTracker.Data.csproj"
+            "C:\\Users\\dimitar.sotirov\\Desktop\\MedTracker\\New folder\\MedTracker\\MedTracker.Data\\MedTracker.Data.csproj": {
+              "projectPath": "C:\\Users\\dimitar.sotirov\\Desktop\\MedTracker\\New folder\\MedTracker\\MedTracker.Data\\MedTracker.Data.csproj"
             },
-            "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Models\\MedTracker.Models.csproj": {
-              "projectPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Models\\MedTracker.Models.csproj"
+            "C:\\Users\\dimitar.sotirov\\Desktop\\MedTracker\\New folder\\MedTracker\\MedTracker.Models\\MedTracker.Models.csproj": {
+              "projectPath": "C:\\Users\\dimitar.sotirov\\Desktop\\MedTracker\\New folder\\MedTracker\\MedTracker.Models\\MedTracker.Models.csproj"
             },
-            "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Services.Models\\MedTracker.Services.Models.csproj": {
-              "projectPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Services.Models\\MedTracker.Services.Models.csproj"
+            "C:\\Users\\dimitar.sotirov\\Desktop\\MedTracker\\New folder\\MedTracker\\MedTracker.Services.Models\\MedTracker.Services.Models.csproj": {
+              "projectPath": "C:\\Users\\dimitar.sotirov\\Desktop\\MedTracker\\New folder\\MedTracker\\MedTracker.Services.Models\\MedTracker.Services.Models.csproj"
             },
-            "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Services\\MedTracker.Services.csproj": {
-              "projectPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Services\\MedTracker.Services.csproj"
+            "C:\\Users\\dimitar.sotirov\\Desktop\\MedTracker\\New folder\\MedTracker\\MedTracker.Services\\MedTracker.Services.csproj": {
+              "projectPath": "C:\\Users\\dimitar.sotirov\\Desktop\\MedTracker\\New folder\\MedTracker\\MedTracker.Services\\MedTracker.Services.csproj"
             }
           }
         }

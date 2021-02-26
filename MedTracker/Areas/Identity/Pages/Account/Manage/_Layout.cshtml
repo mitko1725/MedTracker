@@ -1,25 +1,47 @@
-﻿@{
-    if (ViewData.TryGetValue("ParentLayout", out var parentLayout))
-    {
-        Layout = (string)parentLayout;
-    }
-    else
-    {
-        Layout = "/Areas/Identity/Pages/_Layout.cshtml";
-    }
+﻿@*@{
+        if (ViewData.TryGetValue("ParentLayout", out var parentLayout))
+        {
+            Layout = (string)parentLayout;
+        }
+        else
+        {
+            Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+        }
+    }*@
+
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
 }
+<div style="        position: relative;
+        background-color: #FFA73B;
+        background-size: cover;
+        height: 250px;
+        width: 100%;
+        z-index: 0;">
+    <div style="background: rgba(0,0,0,0.3);position: absolute; top: 0; left:0; right:0; bottom: 0; ">&nbsp;</div>
 
-<h2>Manage your account</h2>
+    <h1 style="color: white; font-weight:700; text-align: center; margin: 0; position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);">
 
-<div>
-    <h4>Change your account settings</h4>
-    <hr />
-    <div class="row">
-        <div class="col-md-3">
-            <partial name="_ManageNav" />
-        </div>
-        <div class="col-md-9">
-            @RenderBody()
+
+        Manage your account
+    </h1>
+</div>
+<div class="MyLayoutContainer">
+    @*<h2>Manage your account</h2>*@
+
+    <div>
+        <h4>Change your account settings</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-3">
+                <partial name="_ManageNav" />
+            </div>
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
         </div>
     </div>
 </div>

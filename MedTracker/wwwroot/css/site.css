@@ -76,3 +76,11 @@ body {
     margin-right: auto;
     margin-left: auto;
 }
+.MyLayoutContainer {
+    width: 65%;
+    padding-top:1.1%;
+    padding-right: 5%;
+    padding-left: 5%;
+    margin-right: auto;
+    margin-left: auto;
+}
