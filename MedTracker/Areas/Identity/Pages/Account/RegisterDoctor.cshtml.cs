@@ -32,16 +32,18 @@ namespace MedTracker.Areas.Identity.Pages.Account
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IRegisterService _register;
         private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly IIdentityService _identity;
 
 
         public RegisterDoctor(
             UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager, IRegisterService register, IWebHostEnvironment webHostEnvironment)
+            SignInManager<ApplicationUser> signInManager, IRegisterService register, IWebHostEnvironment webHostEnvironment, IIdentityService identity)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _register = register;
             _webHostEnvironment = webHostEnvironment;
+            _identity = identity;
         }
 
         [BindProperty]
@@ -87,6 +89,8 @@ namespace MedTracker.Areas.Identity.Pages.Account
 
             [Required]
             public Gender Gender { get; set; }
+            [Display(Name = "Profile picture")]
+            public IFormFile ProfilePicToSave { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -119,11 +123,12 @@ namespace MedTracker.Areas.Identity.Pages.Account
                         LastName = Input.LastName,
                         Gender = (Gender)gender,
                         Biography = Input.Biography,
-                       
-                        UserId = user1.Id
+                        ProfilePic = UploadedFile(),
+                    UserId = user1.Id
                     };
                     await _userManager.AddToRoleAsync(user1, "Doctor");
                     _register.CreateDoctor(doctor);
+              
 
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
@@ -148,22 +153,25 @@ namespace MedTracker.Areas.Identity.Pages.Account
             // If we got this far, something failed, redisplay form
             return Page();
         }
-        //private string UploadedFile(InputModel model)
-        //{
-        //    string uniqueFileName = null;
+        private string UploadedFile()
+        {
+            // trqbva v onpost methoda 
+            string uniqueFileName = null;
+            //ако е нямал снимка но да не гърми
+            if (Input.ProfilePicToSave != null)
+            {
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + Input.ProfilePicToSave.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    Input.ProfilePicToSave.CopyTo(fileStream);
+                }
+            }
+            return uniqueFileName;
+        }
 
-        //    if (model.ProfilePic != null)
-        //    {
-        //        string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
-        //        uniqueFileName = Guid.NewGuid().ToString() + "_" + model.ProfilePic.FileName;
-        //        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-        //        using (var fileStream = new FileStream(filePath, FileMode.Create))
-        //        {
-        //            model.ProfilePic.CopyTo(fileStream);
-        //        }
-        //    }
-        //    return uniqueFileName;
-        //}
+
 
     }
 }

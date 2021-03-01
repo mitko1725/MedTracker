@@ -2,6 +2,7 @@
 using MedTracker.Models;
 using MedTracker.Services.Interfaces;
 using MedTracker.Services.Models;
+using MedTracker.Services.Models.IdentityServiceModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -60,10 +61,6 @@ namespace MedTracker.Services
             if (doctor == null)
             {
                 throw new ArgumentException("No such doctor");
-             
-
-
-                
             }
             var doctorUserDetails = new DoctorFullDetailsServiceModel()
             {
@@ -79,5 +76,25 @@ namespace MedTracker.Services
             return doctorUserDetails;
         }
 
+        public PatientFullDetails GetPatientByUserId(Guid userId)
+        {
+            var patient = this.data.Patients.AsNoTracking().Where(x => x.UserId == userId).FirstOrDefault();
+            if (patient == null)
+            {
+                throw new ArgumentException("No such patient");
+            }
+            var patientUserDetails = new PatientFullDetails()
+            {
+                FirstName = patient.FirstName,
+                MiddleName = patient.MiddleName,
+                LastName = patient.LastName,
+               Insured= patient.Insured,
+                Gender = patient.Gender,
+              BirthDate=patient.Birthdate,
+                ProfilePic = patient.ProfilePic,
+                UserId = patient.UserId
+            };
+            return patientUserDetails;
+        }
     }
 }

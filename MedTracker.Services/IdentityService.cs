@@ -15,6 +15,7 @@ namespace MedTracker.Services
 
         private readonly MedTrackerDbContext data;
 
+        
         public IdentityService(MedTrackerDbContext data)
         {
             this.data = data;
@@ -50,5 +51,32 @@ namespace MedTracker.Services
                 UserId=id
             })
             .FirstOrDefault();
+
+        public void UpdateDoctorDetails(DoctorFullDetailsServiceModel model)
+        {
+            var doctor = data.Doctors.Where(x => x.UserId == model.UserId).FirstOrDefault();
+            doctor.FirstName = model.FirstName;
+            doctor.MiddleName = model.MiddleName;
+            doctor.LastName = model.LastName;
+            doctor.Gender = model.Gender;
+            doctor.Biography = model.Biography;
+            doctor.ProfilePic = model.ProfilePic;
+            this.data.SaveChanges();
+        }
+
+        public  void UpdatePatientDetails(PatientFullDetails model)
+        {
+            var patient = data.Patients.Where(x => x.UserId==model.UserId).FirstOrDefault();
+         
+            patient.FirstName = model.FirstName;
+            patient.MiddleName = model.MiddleName;
+            patient.LastName = model.LastName;
+            patient.Gender = model.Gender;
+            patient.Insured = model.Insured;
+            patient.Birthdate = model.BirthDate;
+            patient.ProfilePic = model.ProfilePic;
+            this.data.SaveChanges();
+
+        }
     }
 }

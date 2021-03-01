@@ -13,7 +13,7 @@
                     <h4 class="card-title mt-2">Register as DOCTOR</h4>
                 </header>
                 <article class="card-body">
-                    <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <form asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data">
                         <div class="form-row">
                             <p class="text-secondary">Fields with * are required!</p>
                         </div>
@@ -62,16 +62,19 @@
                                 <span class="form-check-label"> Other</span>
                             </label>
                         </div>
-                        @*<div class="col-md-6">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label asp-for="Input.ProfilePic" class="control-label"></label>
+                                <label asp-for="@Model.Input.ProfilePicToSave" class="control-label"></label>
+                                <br>
                                 <div class="custom-file">
-                                    <input asp-for="Input.ProfilePic" class="custom-file-input" type="file">
+                                    <input asp-for="@Model.Input.ProfilePicToSave" class="custom-file-input" id="customFile">
                                     <label class="custom-file-label" for="customFile">Choose file</label>
                                 </div>
-                                <span asp-validation-for="Input.ProfilePic" class="text-danger"></span>
+                                <span asp-validation-for="@Model.Input.ProfilePicToSave" class="text-danger"></span>
+                            
                             </div>
-                        </div>*@
+                        </div>
+
                         <div class="form-group">
                             <label>Biography</label>
                             <textarea cols="50" rows="3" asp-for="Input.Biography">  
@@ -144,19 +147,11 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 <script type="text/javascript">
-    // Add the following code if you want the name of the file appear on select
-    $(".custom-file-input").on("change", function () {
-        var fileName = $(this).val().split("\\").pop();
-        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 
-      
-
-
-
-    });
-
-
-    
- 
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
 </script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">

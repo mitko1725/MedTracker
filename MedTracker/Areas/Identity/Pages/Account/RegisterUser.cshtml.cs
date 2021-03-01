@@ -19,6 +19,9 @@ using MedTracker.Models;
 using System;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MedTracker.Services.Models;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace MedTracker.Areas.Identity.Pages.Account
 {
@@ -28,14 +31,18 @@ namespace MedTracker.Areas.Identity.Pages.Account
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IRegisterService _register;
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly IIdentityService _identity;
 
         public RegisterUser(
             UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager, IRegisterService register)
-        {
+            SignInManager<ApplicationUser> signInManager, IRegisterService register, IWebHostEnvironment webHostEnvironment, IIdentityService identity)
+        {                                                                         
             _userManager = userManager;
             _signInManager = signInManager;
             _register = register;
+            _webHostEnvironment = webHostEnvironment;
+            _identity = identity;
         }
 
         [BindProperty]
@@ -83,7 +90,8 @@ namespace MedTracker.Areas.Identity.Pages.Account
             public string ProfilePic { get; set; }
 
 
-        
+            [Display(Name = "Profile picture")]
+            public IFormFile ProfilePicToSave { get; set; }
 
 
 
@@ -123,12 +131,14 @@ namespace MedTracker.Areas.Identity.Pages.Account
                         Birthdate = Input.Birthdate,
                         Gender = (Gender)gender,
                         Insured = (Insured)insured,
-                        ProfilePic = Input.ProfilePic,
+                        ProfilePic = UploadedFile(),
                         UserId = user1.Id
                     };
-                       await  _userManager.AddToRoleAsync(user1, "Patient");
+                 
+                    await  _userManager.AddToRoleAsync(user1, "Patient");
                     _register.CreateUser(patient);
-                   
+                  
+
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -149,6 +159,25 @@ namespace MedTracker.Areas.Identity.Pages.Account
             // If we got this far, something failed, redisplay form
             return Page();
         }
-   
+
+
+        private string UploadedFile()
+        {
+            // trqbva v onpost methoda 
+            string uniqueFileName = null;
+            //ако е нямал снимка но да не гърми
+            if (Input.ProfilePicToSave != null)
+            {
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + Input.ProfilePicToSave.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    Input.ProfilePicToSave.CopyTo(fileStream);
+                }
+            }
+            return uniqueFileName;
+        }
+
     }
 }

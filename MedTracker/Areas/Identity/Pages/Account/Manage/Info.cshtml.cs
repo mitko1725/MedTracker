@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MedTracker.Data;
 using MedTracker.Models;
 using MedTracker.Services.Interfaces;
+using MedTracker.Services.Models;
+using MedTracker.Services.Models.IdentityServiceModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -27,7 +29,7 @@ namespace MedTracker.Web.Areas.Identity.Pages.Account.Manage
             _identity = identity;
         }
 
-     
+
 
 
         [TempData]
@@ -38,17 +40,19 @@ namespace MedTracker.Web.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
-    
+
 
             public string FirstName { get; set; }
             public string MiddleName { get; set; }
 
             public string LastName { get; set; }
+            [EnumDataType(typeof(Gender))]
             public Gender Gender { get; set; }
-            public Insured Insured{ get; set; }
+            [EnumDataType(typeof(Insured))]
+            public Insured Insured { get; set; }
             public string Biography { get; set; }
-            public DateTime BirthDate{ get; set; }
-            public string Role{ get; set; }
+            public DateTime BirthDate { get; set; }
+            public string Role { get; set; }
         }
 
         private async Task LoadAsync(ApplicationUser user)
@@ -59,22 +63,22 @@ namespace MedTracker.Web.Areas.Identity.Pages.Account.Manage
             // here should get patient or doc by Id 2 methods 
             var userInRole = await _userManager.GetRolesAsync(user);
 
-                Input = new InputModel
-                {
-                 Role="Other"
-                };
-            
+            Input = new InputModel
+            {
+                Role = "Other"
+            };
+
 
             if (userInRole.Contains("Doctor"))
             {
-              var docDetails =   _identity.GetDoctorDetails(user.Id);
+                var docDetails = _identity.GetDoctorDetails(user.Id);
                 Input.FirstName = docDetails.FirstName;
                 Input.MiddleName = docDetails.MiddleName;
                 Input.LastName = docDetails.LastName;
                 Input.Gender = docDetails.Gender;
                 Input.Biography = docDetails.Biography;
                 Input.Role = "Doctor";
-                
+
 
             }
             else if (userInRole.Contains("Patient"))
@@ -88,8 +92,8 @@ namespace MedTracker.Web.Areas.Identity.Pages.Account.Manage
                 Input.Insured = patDetails.Insured;
                 Input.Role = "Patient";
             }
-          
-        
+
+
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -107,7 +111,12 @@ namespace MedTracker.Web.Areas.Identity.Pages.Account.Manage
         public async Task<IActionResult> OnPostAsync()
         {
             //when changing name change Name in USER and DOC/PATIENT ASWELL !
+
+
             var user = await _userManager.GetUserAsync(User);
+
+
+
             if (user == null)
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
@@ -118,8 +127,58 @@ namespace MedTracker.Web.Areas.Identity.Pages.Account.Manage
                 await LoadAsync(user);
                 return Page();
             }
+            if (string.IsNullOrEmpty(Input.FirstName) || string.IsNullOrEmpty(Input.MiddleName) ||
+         string.IsNullOrEmpty(Input.LastName))
+            {
+                StatusMessage = "Can not update empty field";
+                return RedirectToPage();
+            }
 
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+
+            var userRoles = await _userManager.GetRolesAsync(user);
+            if (userRoles.Contains("Patient"))
+            {
+                var pat = new PatientFullDetails
+                {
+       FirstName = Input.FirstName,
+                    MiddleName = Input.MiddleName,
+                    LastName = Input.LastName,
+                    Gender = Input.Gender,
+                    Insured = Input.Insured,
+                    BirthDate = Input.BirthDate,
+                    UserId=user.Id
+                };
+                _identity.UpdatePatientDetails(pat);
+                user.FirstName = Input.FirstName;
+                user.LastName = Input.LastName;
+                await _userManager.UpdateAsync(user);
+                // edit method, care for validations if empty or 
+                //edin user Name aswell!!
+            }
+            else if (userRoles.Contains("Doctor"))
+            {
+               
+                var doc = new DoctorFullDetailsServiceModel
+                {
+                    FirstName = Input.FirstName,
+                    MiddleName = Input.MiddleName,
+                    LastName = Input.LastName,
+                    Gender = Input.Gender,
+                    Biography=Input.Biography,
+                    UserId = user.Id
+                };
+                _identity.UpdateDoctorDetails(doc);
+                user.FirstName = Input.FirstName;
+                user.LastName = Input.LastName;
+                await _userManager.UpdateAsync(user);
+        
+
+            }
+            else if (userRoles.Contains("Admin"))
+            {
+
+            }
+
             //if (Input.PhoneNumber != phoneNumber)
             //{
             //    var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);

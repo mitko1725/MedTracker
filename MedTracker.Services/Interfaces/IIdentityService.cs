@@ -9,5 +9,9 @@ namespace MedTracker.Services.Interfaces
     {
         public DoctorFullDetailsServiceModel GetDoctorDetails(Guid id);
         public PatientFullDetails GetPatientDetails(Guid id);
-    }
+
+        public void UpdatePatientDetails(PatientFullDetails model);
+        public void UpdateDoctorDetails(DoctorFullDetailsServiceModel model);
+
+    } 
 }

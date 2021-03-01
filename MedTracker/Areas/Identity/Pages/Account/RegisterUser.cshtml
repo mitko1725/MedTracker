@@ -13,7 +13,7 @@
                     <h4 class="card-title mt-2">Register</h4>
                 </header>
                 <article class="card-body">
-                    <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <form asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data">
                         <div class="form-row">
                             <p class="text-secondary">Fields with * are required!</p>
                         </div>
@@ -49,6 +49,19 @@
                             <input asp-for="Input.PhoneNumber" class="form-control" />
                             <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="@Model.Input.ProfilePicToSave" class="control-label"></label>
+                                <br>
+                                <div class="custom-file">
+                                    <input asp-for="@Model.Input.ProfilePicToSave" class="custom-file-input" id="customFile">
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
+                                <span asp-validation-for="@Model.Input.ProfilePicToSave" class="text-danger"></span>
+                                @*<button id="update-profile-button" type="submit" class="btn btn-outline-secondary ">Change Profile Picture</button>*@
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label>*Gender: </label>
                             <br>
@@ -67,7 +80,7 @@
                             </label>
                         </div>
                         <div class="form-group">
-                          
+
                             <label>*Are you inssured?</label>
                             <label class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="insured" value="0">
@@ -137,13 +150,21 @@
 <div class="p-3 mb-2 bg-secondary text-white text-center">
     <p>
         <h4>Are you a doctor?</h4>
-        If you want to register as doctor you need to register from Here:   
+        If you want to register as doctor you need to register from Here:
         <a class="btn btn-outline-light my-2 my-sm-0" type="submit" asp-area="Identity" asp-page="/Account/RegisterDoctor">Click here</a>
     </p>
 </div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script type="text/javascript">
+
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
 }
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->

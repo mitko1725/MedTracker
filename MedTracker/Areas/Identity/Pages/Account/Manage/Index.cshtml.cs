@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using MedTracker.Data;
+using MedTracker.Services.Interfaces;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -14,13 +18,19 @@ namespace MedTracker.Areas.Identity.Pages.Account.Manage
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly IIdentityService _identity;
 
         public IndexModel(
             UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager)
+            SignInManager<ApplicationUser> signInManager,
+            IWebHostEnvironment webHostEnvironment,
+            IIdentityService identity)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _webHostEnvironment = webHostEnvironment;
+            _identity = identity;
         }
 
         public string Username { get; set; }
@@ -36,8 +46,16 @@ namespace MedTracker.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+            [Display(Name = "First name")]
             public string FirstName { get; set; }
+            [Display(Name = "Last name")]
             public string LastName { get; set; }
+            [Display(Name = "Profile picture")]
+            public IFormFile ProfilePicToSave { get; set; }
+          
+
+            public string ProfilePic { get; set; }
+            public string Role { get; set; }
         }
 
         private async Task LoadAsync(ApplicationUser user)
@@ -45,14 +63,34 @@ namespace MedTracker.Areas.Identity.Pages.Account.Manage
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
 
-            Username = userName;
+            var userInRole = await _userManager.GetRolesAsync(user);
 
             Input = new InputModel
             {
                 PhoneNumber = phoneNumber,
-                FirstName  = user.FirstName,
-                LastName = user.LastName
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                
+                Role = "Other"
             };
+
+
+
+            if (userInRole.Contains("Doctor"))
+            {
+                var docDetails = _identity.GetDoctorDetails(user.Id);
+                Input.ProfilePic = docDetails.ProfilePic;
+                Input.Role = "Doctor";
+
+
+            }
+            else if (userInRole.Contains("Patient"))
+            {
+                var patDetails = _identity.GetPatientDetails(user.Id);
+                Input.ProfilePic = patDetails.ProfilePic;
+                Input.Role = "Doctor";
+            }
+            Username = userName;
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -62,7 +100,7 @@ namespace MedTracker.Areas.Identity.Pages.Account.Manage
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
-
+          
             await LoadAsync(user);
             return Page();
         }
@@ -70,6 +108,8 @@ namespace MedTracker.Areas.Identity.Pages.Account.Manage
         public async Task<IActionResult> OnPostAsync()
         {
             var user = await _userManager.GetUserAsync(User);
+
+            
             if (user == null)
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
@@ -79,6 +119,31 @@ namespace MedTracker.Areas.Identity.Pages.Account.Manage
             {
                 await LoadAsync(user);
                 return Page();
+            }
+
+            var userInRole = await _userManager.GetRolesAsync(user);
+
+
+            if (Input.ProfilePicToSave!=null)
+            {
+
+
+
+                if (userInRole.Contains("Doctor"))
+                {
+                    var docDetails = _identity.GetDoctorDetails(user.Id);
+
+                    docDetails.ProfilePic = UploadedFile();
+                    _identity.UpdateDoctorDetails(docDetails);
+                    //update profile pricutre;
+
+                }
+                else if (userInRole.Contains("Patient"))
+                {
+                    var patDetails = _identity.GetPatientDetails(user.Id);
+                    patDetails.ProfilePic = UploadedFile();
+                    _identity.UpdatePatientDetails(patDetails);
+                }
             }
 
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
@@ -96,5 +161,25 @@ namespace MedTracker.Areas.Identity.Pages.Account.Manage
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();
         }
+
+
+        private string UploadedFile()
+        {
+            // trqbva v onpost methoda 
+            string uniqueFileName = null;
+            //ако е нямал снимка но да не гърми
+            if (Input.ProfilePicToSave != null)
+            {
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + Input.ProfilePicToSave.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    Input.ProfilePicToSave.CopyTo(fileStream);
+                }
+            }
+            return uniqueFileName;
+        }
+
     }
 }

@@ -54,7 +54,14 @@
                         </tr>
                         <tr>
                             <td class="success"><h4>Profile Picture:</h4> </td>
-                            <td>@Model.Doctor.ProfilePic</td>
+                            <td>
+                                @if (Model.Doctor.ProfilePic != null)
+                                {
+                                    <img src="~/images/@Model.Doctor.ProfilePic"
+                                         class="rounded-circle"
+                                         height="250" width="250" />
+                                }
+                            </td>
 
 
 
