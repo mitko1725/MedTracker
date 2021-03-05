@@ -10,6 +10,7 @@ namespace MedTracker.Services.Interfaces
     {
         public IEnumerable<DoctorFullDetailsServiceModel> NotApprovedDoctors(int page=1);
         public IEnumerable<SpecializationDetailsServiceModel> AllSpecializations(int page=1);
+        public IEnumerable<SpecializationDetailsServiceModel> DoctorSpecializations(int docId);
         public DoctorFullDetailsServiceModel FindDoctorById(Guid Id);
         public void MakeDoctorActive(DoctorFullDetailsServiceModel model);
         public void AddSpecialization(string specName);

@@ -18,8 +18,8 @@ namespace MedTracker.Services.Models
         public string ProfilePic { get; set; }
         public Guid UserId { get; set; }
         public bool IsActive { get; set; }
-      
 
+   
 
 
 

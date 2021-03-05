@@ -1,9 +1,9 @@
 ﻿using MedTracker.Models;
 using MedTracker.Services.Models;
 using MedTracker.Services.Models.IdentityServiceModels;
+using MedTracker.Services.Models.RegisterServiceModels;
 using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace MedTracker.Services.Interfaces
 {
@@ -13,5 +13,6 @@ namespace MedTracker.Services.Interfaces
         public void CreateDoctor(CreateDoctorServiceModel model);
         public DoctorFullDetailsServiceModel GetDoctorByUserId(Guid userId);
         public PatientFullDetails GetPatientByUserId(Guid userId);
+        public void AddDoctorSpecializations(DoctorSpecializationsServiceModel model);
     }
 }

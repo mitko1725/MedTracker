@@ -1,0 +1,85 @@
+﻿@page
+@model MedTracker.Web.Areas.Identity.Pages.Account.Manage.DoctorSpecializations
+
+
+
+<div class="MyContainer">
+
+    <div id="tableWithInformation">
+
+    <form method="post">
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    Specialization Name:
+                </th>
+
+                <th>
+                    Remove Specialization
+                </th>
+            </tr>
+
+            @if (Model.Input.Specializations is null)
+            {
+
+                <tr>
+                    <td></td>
+
+                    <td>
+                        <h1>Doctor has no specializations</h1>
+                    </td>
+                </tr>
+
+            }
+            else
+            {
+                foreach (var spec in Model.Input.Specializations)
+                {
+
+                    <tr>
+                        <td>@spec.Name</td>
+
+                        <td>
+
+                            <button class="btn btn-outline-danger" value="@spec.Id" name="docSpecId">
+
+                                Remove
+                            </button>
+
+                        </td>
+
+                    </tr>
+                }
+            }
+        </table>
+    </form>
+</div>
+</div>
+<button class="btn btn-outline-info btn-block" id="addNewSpecializationsButton">
+
+    Add new
+</button>
+
+
+
+<div class="MyContainer"  >
+    <div id="AddNewSpec" style="display:none;">
+        <form method="post">
+        <select class="browser-default custom-select mb-4" multiple name="model" style="padding-bottom: 50%;">
+            <option value="" disabled>Choose option</option>
+            @foreach (var spec in Model.SpecializationsForSelect)
+            {
+                <option value="@spec.Id">@spec.Name</option>
+            }
+
+        </select>
+        <button class="btn btn-outline-info btn-block" asp-page-handler="AddNewSpecialization" >
+
+           Add Specialization
+        </button>
+            </form>
+    </div>
+</div>
+
+
+<script src="~/js/DoctorSpecializations.js" asp-append-version="true"></script>

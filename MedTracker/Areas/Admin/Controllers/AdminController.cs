@@ -74,11 +74,13 @@ namespace MedTracker.Web.Areas.Admin.Controllers
         {
             var doc = _admin.FindDoctorById(Id);
             var userDoc = _UserAdmin.FindUserDoctorById(doc);
-
+            //should display doctor specializations here 
+            var docSpecs = _admin.DoctorSpecializations(doc.Id);
             var viewModelForDetails = new DetailsDoctorViewModel()
             {
                 Doctor = doc,
-                UserDoctor=userDoc
+                UserDoctor=userDoc,
+                DocSpecs= docSpecs
             };
 
             return View(viewModelForDetails);
@@ -88,7 +90,7 @@ namespace MedTracker.Web.Areas.Admin.Controllers
         public IActionResult Approve(Guid userId)
         {
             var doc = _admin.FindDoctorById(userId);
-            ///Method to make doctor Active
+          
             _admin.MakeDoctorActive(doc);
         
             return RedirectToAction("ApproveDoctors");
@@ -98,6 +100,7 @@ namespace MedTracker.Web.Areas.Admin.Controllers
         public IActionResult Reject(Guid userId)
         {
             var doc = _admin.FindDoctorById(userId);
+            //shoud remove doctor specs here ! 
             _UserAdmin.RejectUserDoctor(doc);
             return RedirectToAction("ApproveDoctors");
           

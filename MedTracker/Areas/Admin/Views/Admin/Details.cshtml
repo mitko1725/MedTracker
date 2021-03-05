@@ -53,6 +53,20 @@
                             <td>@Model.Doctor.Gender</td>
                         </tr>
                         <tr>
+                            <td class="success"><h4>Doctor Specialziations:</h4> </td>
+                            <td style="padding-left: 1.75rem;">
+                               <ol>
+                            @foreach (var item in Model.DocSpecs)
+                            {
+                                <li>
+                                   @item.Name 
+                                </li>
+                               <hr>
+                            }
+                               </ol>
+                            </td>
+                        </tr>
+                        <tr>
                             <td class="success"><h4>Profile Picture:</h4> </td>
                             <td>
                                 @if (Model.Doctor.ProfilePic != null)

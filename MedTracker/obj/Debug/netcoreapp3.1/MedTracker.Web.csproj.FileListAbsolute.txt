@@ -441,3 +441,4 @@ C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp
 C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Views\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Views\_ViewImports.cshtml.g.cs
 C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Info.cshtml.g.cs
+C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\DoctorSpecializations.cshtml.g.cs

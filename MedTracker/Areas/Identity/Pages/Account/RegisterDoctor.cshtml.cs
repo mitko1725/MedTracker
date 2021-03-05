@@ -22,6 +22,7 @@ using MedTracker.Services.Models;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using MedTracker.Services.Models.RegisterServiceModels;
 
 namespace MedTracker.Areas.Identity.Pages.Account
 {
@@ -52,6 +53,8 @@ namespace MedTracker.Areas.Identity.Pages.Account
         public string ReturnUrl { get; set; }
 
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
+
+        public Dictionary<int, string> DocSpecializations { get; set; } = new Dictionary<int, string>();
 
         public class InputModel
         {
@@ -84,7 +87,9 @@ namespace MedTracker.Areas.Identity.Pages.Account
 
             public string Biography { get; set; }
 
-            //public IFormFile ProfilePic { get; set; }
+
+            public IList<int> SelectedSpecializations { get; set; }
+
 
 
             [Required]
@@ -97,21 +102,22 @@ namespace MedTracker.Areas.Identity.Pages.Account
         {
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            FillViewBagWithDataForSelectInView();
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null, int gender = -1)
         {
-          
+
             returnUrl = returnUrl ?? Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName,PhoneNumber=Input.PhoneNumber };
+                var user = new ApplicationUser() { UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName, PhoneNumber = Input.PhoneNumber };
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
-            
-                
-                //string uniqueFileName = UploadedFile(new InputModel());
+
+
+
                 if (result.Succeeded)
                 {
                     var user1 = await _userManager.FindByEmailAsync(user.Email);
@@ -124,11 +130,22 @@ namespace MedTracker.Areas.Identity.Pages.Account
                         Gender = (Gender)gender,
                         Biography = Input.Biography,
                         ProfilePic = UploadedFile(),
-                    UserId = user1.Id
+                        UserId = user1.Id
                     };
                     await _userManager.AddToRoleAsync(user1, "Doctor");
                     _register.CreateDoctor(doctor);
-              
+                    var getInfo = _register.GetDoctorByUserId(user1.Id);
+                    var docSpecs = new DoctorSpecializationsServiceModel()
+                    {
+                        DoctorId = getInfo.Id,
+                        DoctorSpecializations = Input.SelectedSpecializations
+
+                    };
+                    _register.AddDoctorSpecializations(docSpecs);
+                    //create doc_spec
+                    //service method that contains Doc ID and COllections of ints with specilizations
+                    //method VOID
+
 
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
@@ -137,8 +154,8 @@ namespace MedTracker.Areas.Identity.Pages.Account
                     }
                     else
                     {
-               
-                         return RedirectToAction("AccountNotActivated","Identity");
+
+                        return RedirectToAction("AccountNotActivated", "Identity");
                         //await _signInManager.SignInAsync(user, isPersistent: false);
 
                         //return Redirect("/Views/AccountNotActivated");
@@ -171,7 +188,23 @@ namespace MedTracker.Areas.Identity.Pages.Account
             return uniqueFileName;
         }
 
+        public void OnPostYogaPostures(int sessionCount)
+        {
+            //do your work here
 
+
+        }
+
+        [NonAction]
+        private void FillViewBagWithDataForSelectInView()
+        {
+            var modelDataForViewBag = _identity.ModelsDoctorSelect();
+            foreach (var item in modelDataForViewBag)
+            {
+                DocSpecializations.Add(item.Id, item.Name);
+            }
+
+        }
 
     }
 }

@@ -49,9 +49,18 @@ namespace MedTracker.Services.Interfaces
                 })
                 .ToList();
 
+        public IEnumerable<SpecializationDetailsServiceModel> DoctorSpecializations(int docId)
+        => this.data.Doctor_Specialization.Where(x => x.DoctorId == docId).Select(x => new SpecializationDetailsServiceModel()
+        {
+        Id=x.DoctorId,
+        Name=x.Specialization.Name
+
+        }).ToList();
+
         public DoctorFullDetailsServiceModel FindDoctorById(Guid Id)
         => this.data.Doctors.Where(x => x.UserId == Id).Select(x => new DoctorFullDetailsServiceModel
         {
+            Id=x.Id,
             FirstName = x.FirstName,
             MiddleName = x.MiddleName,
             LastName = x.LastName,
