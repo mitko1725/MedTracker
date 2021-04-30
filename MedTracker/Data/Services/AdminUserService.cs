@@ -63,6 +63,12 @@ namespace MedTracker.Web.Data.Services
             var getUserRolesDoctor = _userData.UserRoles.Where(x => x.UserId == model.UserId).FirstOrDefault();
 
             _data.Remove(getDoctor);
+            foreach (var doctorSpecialization in model.DoctorSpecializations)
+            {
+                var docSpecEntity = _data.Doctor_Specialization.Where(x => (x.DoctorId == doctorSpecialization.DoctorId) && (x.SpecializationId == doctorSpecialization.SpecializationId)).FirstOrDefault();
+                _data.Remove(docSpecEntity);
+            }
+            // need to remove doctor specs first if any
             _userData.Remove(getUserDoctor);
             _userData.Remove(getUserRolesDoctor);
             _data.SaveChanges();

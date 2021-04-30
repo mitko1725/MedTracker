@@ -1,0 +1,114 @@
+﻿@model MedTracker.Web.Models.Appointments.DoctorsResultFromSearchViewModel
+
+
+
+<partial name="_SliderPartial">
+    <div class="AppointmentsIndexFlexbox">
+        <div class="MyContainer">
+            <div class="grid-item">
+                <!--widget tags -->
+                <div class="widget clearfix widget-tags">
+                    <h4 class="widget-title">Choose Doctor Specialization/s</h4>
+
+
+                    <form asp-action="Index" asp-controller="Appointments" method="post">
+                        <div class="row">
+
+
+
+
+                            @for (var i = 0; i < Model.DoctorSpecializationsCheckBoxes.Count(); i++)
+                            {
+                                <div class="col-lg-3">
+
+                                    <input type="checkbox" asp-for="@Model.DoctorSpecializationsCheckBoxes[i].Checked" style="float:left;" />
+                                    <label asp-for="@Model.DoctorSpecializationsCheckBoxes[i].Checked" style="float:left; margin-left:4%;">@Model.DoctorSpecializationsCheckBoxes[i].Name</label>
+                                    <input type="hidden" asp-for="@Model.DoctorSpecializationsCheckBoxes[i].SpecId" />
+                                    <input type="hidden" asp-for="@Model.DoctorSpecializationsCheckBoxes[i].Name" />
+
+                                </div>
+
+                            }
+
+                        </div>
+                        <div class="col-lg-4 mt-3">
+                            <button type="submit" name="action" class="btn btn-outline btn-rounded btn-lg">Filter</button>
+                        </div>
+                    </form>
+
+                </div>
+                <!--end: widget tags -->
+            </div>
+
+        </div>
+
+
+    </div>
+    @if (Model.Doctors == null)
+    {
+
+
+        <div class="MyContainer float-left">
+            
+            
+            <div class="col-lg-4" data-animation="swing" data-animation-delay="5000" style="padding-left:5%;">
+                <div class="icon-box box-type icon-size-default">
+                    <div class="icon"> <i class="fa fa-lightbulb"></i> </div>
+                    <h3>Search Information</h3>
+                    <p>Please choose doctor specialization/s in order to be provided with information.</p>
+                </div>
+            </div>
+          
+        </div>
+
+
+    }
+    else
+    {
+
+
+
+<div class="MyLayoutContainer float-left">
+    @for (int i = 0; i < Model.Doctors.Count(); i++)
+    {
+        <hr>
+        <div class="testov" name="@(i+"testov")">
+        <div class="row" data-animation="fadeInLeft">
+            <div class="col-sm-4">
+                @if (string.IsNullOrEmpty(Model.Doctors[i].ProfilePicture))
+                {
+                    <a><img src="~/images/picture.jpg" class="img-thumbnail ml-2" style="height:250px;width:250px;"></a>
+                }
+                else
+                {
+                    <a><img src="~/images/@Model.Doctors[i].ProfilePicture" class="img-thumbnail ml-2" style="height:250px;width:250px;"></a>
+                }
+
+            </div>
+            <div class="col-sm-8 mb-3">
+                <h2 class="mb-0">@Model.Doctors[i].FullName</h2>
+                <p class="mb-5">
+
+                    @String.Join(", ", Model.Doctors[i].DoctorSpecializations.ToDictionary(x => x.Id, y => y.Name).Values)
+                </p>
+
+                <button type="submit" name="action" class="btn btn-outline btn-rounded btn-lg mt-5">Book and appointment</button>
+            </div>
+
+
+
+
+        </div>
+        </div>
+    }
+
+
+
+</div>
+
+    }
+
+
+
+
+

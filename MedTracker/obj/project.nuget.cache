@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ImrGAVamjleoLsQFgXacOmqs2xh/80pKOZn2OJIvZlASahq/PuGOei8j3CekemsIYIV6ztTCJFQMffx6BX1QIw==",
+  "dgSpecHash": "RVSmgVV8whJrAKBfxR7XywVkT4rEAobvVoC8t4w8le+EQU/N0+ALG8hi1PP9MOlejzCoH+LBtasz+vR6tt/nvg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker\\MedTracker.Web.csproj",
+  "projectFilePath": "C:\\Users\\dimitar.sotirov\\Desktop\\MedTracker\\New folder\\MedTracker\\MedTracker\\MedTracker.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dimitar.sotirov\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.11\\microsoft.aspnetcore.cryptography.internal.3.1.11.nupkg.sha512",
     "C:\\Users\\dimitar.sotirov\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.11\\microsoft.aspnetcore.cryptography.keyderivation.3.1.11.nupkg.sha512",

@@ -101,6 +101,8 @@ namespace MedTracker.Web.Areas.Admin.Controllers
         {
             var doc = _admin.FindDoctorById(userId);
             //shoud remove doctor specs here ! 
+            doc.DoctorSpecializations = _admin.ListOfDoctorSpecializations(doc.Id).ToList();
+            // add list of docSpecs and add id to method
             _UserAdmin.RejectUserDoctor(doc);
             return RedirectToAction("ApproveDoctors");
           

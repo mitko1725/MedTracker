@@ -1,0 +1,76 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<MedTracker.Data.ApplicationUser> SignInManager
+@inject UserManager<MedTracker.Data.ApplicationUser> UserManager
+ 
+    <div id="header-wrap">
+        <div class="container">
+            <!--Logo-->
+            <div id="logo">
+                <a href="index.html" class="logo" data-dark-logo="images/logo.png">
+                    <img src="images/logo.png" alt="Polo Logo">
+                </a>
+            </div>
+            <!--End: Logo-->
+            <!--Header Extras-->
+            <div class="header-extras">
+
+
+            </div>
+            <!--end: Header Extras-->
+            <!--Navigation Resposnive Trigger-->
+            <div id="mainMenu-trigger">
+                <button class="lines-button x"> <span class="lines"></span> </button>
+            </div>
+            <!--end: Navigation Resposnive Trigger-->
+            <!--Navigation-->
+            <div id="mainMenu" class="light">
+                <div class="container">
+                    <nav>
+                        <ul>
+
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="Appointemnts" asp-action="Index">Make Appoinment</a>
+                            </li>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin Panel</a>
+                                </li>
+                            }
+
+
+
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <li class="nav-item">
+                                    <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+                                </li>
+                                <li class="nav-item">
+                                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                        <button type="submit" class="btn btn-rounded mt-3">Logout</button>
+                                    </form>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a asp-area="Identity" asp-page="/Account/RegisterUser">Register</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-area="Identity" asp-page="/Account/Login">Login</a>
+                                </li>
+                            }
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!--end: Navigation-->
+        </div>
+    </div>

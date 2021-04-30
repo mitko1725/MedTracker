@@ -2,6 +2,7 @@
 using MedTracker.Models;
 using MedTracker.Services.Models;
 using MedTracker.Services.Models.AdminServiceModels;
+using MedTracker.Services.Models.DoctorSpecializationServiceModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace MedTracker.Services.Interfaces
 
         public void AddSpecialization(string specName)
         {
-            if (this.data.Specializations.Any(x=>x.Name== specName)  )
+            if (this.data.Specializations.Any(x=>x.Name== specName))
             {
                 throw new ArgumentException("Cannot add Specialization with same name");
             }
@@ -71,6 +72,16 @@ namespace MedTracker.Services.Interfaces
         })
             .AsNoTracking()
             .FirstOrDefault();
+
+        public IEnumerable<DoctorSpecializationServiceModel> ListOfDoctorSpecializations(int docId)
+        => this.data.Doctor_Specialization.Where(x => x.DoctorId == docId).Select(x => new DoctorSpecializationServiceModel
+        {
+            DoctorId=x.DoctorId,
+            SpecializationId=x.SpecializationId
+
+        })
+            .AsNoTracking()
+            .ToList();
 
         public void MakeDoctorActive(DoctorFullDetailsServiceModel model)
         {

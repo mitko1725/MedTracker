@@ -442,3 +442,9 @@ C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp
 C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Views\_ViewImports.cshtml.g.cs
 C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Info.cshtml.g.cs
 C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\DoctorSpecializations.cshtml.g.cs
+C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\Razor\Views\Home\Error.cshtml.g.cs
+C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_FooterPartial.cshtml.g.cs
+C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_HeaderPartial.cshtml.g.cs
+C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SliderPartial.cshtml.g.cs
+C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Index.cshtml.g.cs
+C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_HomeSliderPartial.cshtml.g.cs

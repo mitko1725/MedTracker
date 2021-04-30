@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = Url.ActionContext.HttpContext.Request.Path.Value.Substring(1);
+  
+}
+
+
+<div id="slider" class="inspiro-slider  arrows-creative dots-creative" data-height-xs="360" style="height:500px !important;">
+    <!-- Slide 1 -->
+    <div class="slide" data-parallax-image="images/test.jpg" style="height:500px !important;">
+        <div class="container">
+            <div class="slide-captions text-light text-center">
+                <!-- Captions -->
+                @*<span data-animation="fadeInUp" data-animation-delay="300" class="strong">
+                    <a href="#" class="business"><span class="business">Make an oppintment for your doctor online</span></a>
+                </span>*@
+                <h1 data-animation="fadeInUp" data-animation-delay="600">@ViewData["Title"]</h1>
+
+                <!-- end: Captions -->
+            </div>
+        </div>
+    </div>
+    <!-- end: Slide 1 -->
+</div>

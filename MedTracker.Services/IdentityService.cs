@@ -51,9 +51,6 @@ namespace MedTracker.Services
 
         public IEnumerable<ModelsForDoctorSpecializationsServiceModel> DoctorSpecializationThatCanBeAddedForSelect(IEnumerable<ModelsForDoctorSpecializationsServiceModel> currentSpecs)
         {
-
-            
-         
             //should take all specs
             var specializationsForSelect = new List<ModelsForDoctorSpecializationsServiceModel>();
             foreach (var item in data.Specializations.ToList())

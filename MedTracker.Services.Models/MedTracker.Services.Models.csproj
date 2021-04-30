@@ -18,4 +18,8 @@
     <ProjectReference Include="..\MedTracker.Models\MedTracker.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DoctorServiceModels\" />
+  </ItemGroup>
+
 </Project>

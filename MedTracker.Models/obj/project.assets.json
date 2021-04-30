@@ -6892,11 +6892,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Models\\MedTracker.Models.csproj",
+      "projectUniqueName": "C:\\Users\\dimitar.sotirov\\Desktop\\MedTracker\\New folder\\MedTracker\\MedTracker.Models\\MedTracker.Models.csproj",
       "projectName": "MedTracker.Models",
-      "projectPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Models\\MedTracker.Models.csproj",
+      "projectPath": "C:\\Users\\dimitar.sotirov\\Desktop\\MedTracker\\New folder\\MedTracker\\MedTracker.Models\\MedTracker.Models.csproj",
       "packagesPath": "C:\\Users\\dimitar.sotirov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Models\\obj\\",
+      "outputPath": "C:\\Users\\dimitar.sotirov\\Desktop\\MedTracker\\New folder\\MedTracker\\MedTracker.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -6912,7 +6912,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.cloudsmith.io/orchardcore/preview/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.1": {
