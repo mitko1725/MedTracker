@@ -215,9 +215,6 @@ C:\Users\dimitar.sotirov\source\repos\medtracker1.0\MedTracker\MedTracker\obj\De
 C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\MedTracker.Web.csprojAssemblyReference.cache
 C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\MedTracker.Web.AssemblyInfoInputs.cache
 C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\MedTracker.Web.AssemblyInfo.cs
-C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\MedTracker.Web.csproj.CoreCompileInputs.cache
-C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\MedTracker.Web.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\MedTracker.Web.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\MedTracker.Web.RazorAssemblyInfo.cache
 C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\MedTracker.Web.RazorAssemblyInfo.cs
 C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\MedTracker.Web.dll
@@ -448,3 +445,7 @@ C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp
 C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SliderPartial.cshtml.g.cs
 C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Index.cshtml.g.cs
 C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_HomeSliderPartial.cshtml.g.cs
+C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\MakeAppointment.cshtml.g.cs
+C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\MedTracker.Web.csproj.CoreCompileInputs.cache
+C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\MedTracker.Web.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\dimitar.sotirov\source\repos\MedTracker\MedTracker\obj\Debug\netcoreapp3.1\MedTracker.Web.MvcApplicationPartsAssemblyInfo.cache

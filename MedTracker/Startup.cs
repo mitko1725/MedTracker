@@ -51,6 +51,7 @@ namespace MedTracker
             services.AddTransient<IAdminService, AdminService>();
             services.AddTransient<IIdentityService, IdentityService>();
             services.AddTransient<IAppointmentsService, AppointmentsService>();
+            services.AddTransient<ICalendarService, CalendarService>();
 
 
 

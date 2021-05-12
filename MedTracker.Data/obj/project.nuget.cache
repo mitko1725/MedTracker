@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LduQsJUaYCKjJJNasEgFRW2b7x93FKlulmfD/JDenJ8AiIjTzWe1ABpRVLmyI6CIv8sdf4V2UrHBJx/59JEb8A==",
+  "dgSpecHash": "9JkiVzV9fsOvgpkkYemTom8ByvhksAfC8xgODJbWoEKwTs8d/lz6MPTGGi6qQbpcM4evvCOu5jPDRLpQCEcSUQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dimitar.sotirov\\Desktop\\MedTracker\\New folder\\MedTracker\\MedTracker.Data\\MedTracker.Data.csproj",
+  "projectFilePath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Data\\MedTracker.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dimitar.sotirov\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\dimitar.sotirov\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",

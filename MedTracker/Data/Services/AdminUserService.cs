@@ -12,19 +12,21 @@ namespace MedTracker.Web.Data.Services
 {
     public class AdminUserService : IAdminUserService
     {
-   
+
         private readonly MedTrackerDbContext _data;
         private readonly ApplicationDbContext _userData;
         public AdminUserService(
        MedTrackerDbContext data, ApplicationDbContext userData)
         {
-     
+
             _data = data;
             _userData = userData;
         }
 
         public UserDoctorFullDetailsServiceModel FindUserDoctorById(DoctorFullDetailsServiceModel model)
-      => this._userData.Users
+      => this._userData
+            .Users
+            .AsNoTracking()
                     .Select(x => new UserDoctorFullDetailsServiceModel
                     {
                         Id = x.Id,
@@ -34,8 +36,8 @@ namespace MedTracker.Web.Data.Services
                     })
                     .Where(x => x.Id == model.UserId)
                     .FirstOrDefault();
-         
-        
+
+
 
         public IEnumerable<UserDoctorFullDetailsServiceModel> NotApprovedUserDoctors(IEnumerable<DoctorFullDetailsServiceModel> model)
         {

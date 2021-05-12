@@ -21,8 +21,8 @@
                             {
                                 <div class="col-lg-3">
 
-                                    <input type="checkbox" asp-for="@Model.DoctorSpecializationsCheckBoxes[i].Checked" style="float:left;" />
-                                    <label asp-for="@Model.DoctorSpecializationsCheckBoxes[i].Checked" style="float:left; margin-left:4%;">@Model.DoctorSpecializationsCheckBoxes[i].Name</label>
+                                    <input type="checkbox" asp-for="@Model.DoctorSpecializationsCheckBoxes[i].Checked" class="float-left mt-2"/>
+                                    <label asp-for="@Model.DoctorSpecializationsCheckBoxes[i].Checked" class="float-left ml-4"  style="font-size:larger">@Model.DoctorSpecializationsCheckBoxes[i].Name</label>
                                     <input type="hidden" asp-for="@Model.DoctorSpecializationsCheckBoxes[i].SpecId" />
                                     <input type="hidden" asp-for="@Model.DoctorSpecializationsCheckBoxes[i].Name" />
 
@@ -72,7 +72,7 @@
     @for (int i = 0; i < Model.Doctors.Count(); i++)
     {
         <hr>
-        <div class="testov" name="@(i+"testov")">
+        <div class="testov" >
         <div class="row" data-animation="fadeInLeft">
             <div class="col-sm-4">
                 @if (string.IsNullOrEmpty(Model.Doctors[i].ProfilePicture))
@@ -91,8 +91,10 @@
 
                     @String.Join(", ", Model.Doctors[i].DoctorSpecializations.ToDictionary(x => x.Id, y => y.Name).Values)
                 </p>
-
-                <button type="submit" name="action" class="btn btn-outline btn-rounded btn-lg mt-5">Book and appointment</button>
+                <a class="btn btn-outline btn-rounded btn-lg mt-5" asp-controller="Appointments"
+                   asp-action="MakeAppointment"
+                   asp-route-doctorId="@Model.Doctors[i].DoctorId"> Book an appointment</a>
+               
             </div>
 
 

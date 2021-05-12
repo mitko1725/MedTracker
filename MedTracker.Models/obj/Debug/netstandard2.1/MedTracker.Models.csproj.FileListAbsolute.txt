@@ -16,12 +16,3 @@ C:\Users\dimitar.sotirov\source\repos\medtracker1.0\MedTracker\MedTracker.Models
 C:\Users\dimitar.sotirov\source\repos\medtracker1.0\MedTracker\MedTracker.Models\obj\Debug\netstandard2.1\MedTracker.Models.dll
 C:\Users\dimitar.sotirov\source\repos\medtracker1.0\MedTracker\MedTracker.Models\obj\Debug\netstandard2.1\MedTracker.Models.pdb
 C:\Users\dimitar.sotirov\source\repos\medtracker1.0\MedTracker\MedTracker.Models\obj\Debug\netstandard2.1\MedTracker.Models.csproj.CoreCompileInputs.cache
-C:\Users\dimitar.sotirov\Desktop\MedTracker\New folder\MedTracker\MedTracker.Models\bin\Debug\netstandard2.1\MedTracker.Models.deps.json
-C:\Users\dimitar.sotirov\Desktop\MedTracker\New folder\MedTracker\MedTracker.Models\bin\Debug\netstandard2.1\MedTracker.Models.dll
-C:\Users\dimitar.sotirov\Desktop\MedTracker\New folder\MedTracker\MedTracker.Models\bin\Debug\netstandard2.1\MedTracker.Models.pdb
-C:\Users\dimitar.sotirov\Desktop\MedTracker\New folder\MedTracker\MedTracker.Models\obj\Debug\netstandard2.1\MedTracker.Models.csprojAssemblyReference.cache
-C:\Users\dimitar.sotirov\Desktop\MedTracker\New folder\MedTracker\MedTracker.Models\obj\Debug\netstandard2.1\MedTracker.Models.AssemblyInfoInputs.cache
-C:\Users\dimitar.sotirov\Desktop\MedTracker\New folder\MedTracker\MedTracker.Models\obj\Debug\netstandard2.1\MedTracker.Models.AssemblyInfo.cs
-C:\Users\dimitar.sotirov\Desktop\MedTracker\New folder\MedTracker\MedTracker.Models\obj\Debug\netstandard2.1\MedTracker.Models.csproj.CoreCompileInputs.cache
-C:\Users\dimitar.sotirov\Desktop\MedTracker\New folder\MedTracker\MedTracker.Models\obj\Debug\netstandard2.1\MedTracker.Models.dll
-C:\Users\dimitar.sotirov\Desktop\MedTracker\New folder\MedTracker\MedTracker.Models\obj\Debug\netstandard2.1\MedTracker.Models.pdb

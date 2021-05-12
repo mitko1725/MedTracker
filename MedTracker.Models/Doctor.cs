@@ -29,6 +29,8 @@ namespace MedTracker.Models
         public ICollection<Doctor_Specialization> DoctorSpecializations { get; set; } = new HashSet<Doctor_Specialization>();
         public ICollection<Review> Reviews { get; set; } = new HashSet<Review>();
         public ICollection<Appointment> Appointments { get; set; } = new HashSet<Appointment>();
+        public ICollection<DoctorWorkingDays> DoctorWorkingDays { get; set; } = new HashSet<DoctorWorkingDays>();
+        public ICollection<DoctorWorkingHours> DoctorWorkingHours { get; set; } = new HashSet<DoctorWorkingHours>();
 
     }
 }

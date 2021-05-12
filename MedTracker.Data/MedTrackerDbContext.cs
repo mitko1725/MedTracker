@@ -20,6 +20,8 @@ namespace MedTracker.Data
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Specialization> Specializations { get; set; }
+        public DbSet<DoctorWorkingDays> DoctorWorkingDays { get; set; }
+        public DbSet<DoctorWorkingHours> DoctorWorkingHours { get; set; }
 
 
 
@@ -88,6 +90,38 @@ namespace MedTracker.Data
                 .WithMany(s => s.DoctorSpecialization)
                 .HasForeignKey(s => s.SpecializationId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+
+            });
+
+
+            builder.Entity<DoctorWorkingDays>(dwd =>
+            {
+
+
+                dwd.HasKey(b => b.Id).HasName("PK__Doctor_W__3214EC07CC9C22E9");
+
+                dwd.HasOne(d => d.Doctor)
+                .WithMany(d => d.DoctorWorkingDays)
+                .HasForeignKey(d => d.DoctorId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
+
+            });
+
+
+            builder.Entity<DoctorWorkingHours>(dwh =>
+            {
+
+
+                dwh.HasKey(b => b.Id).HasName("PK__Doctor_W__3214EC0785847CCC");
+
+                dwh.HasOne(d => d.Doctor)
+                .WithMany(d => d.DoctorWorkingHours)
+                .HasForeignKey(d => d.DoctorId)
+                .OnDelete(DeleteBehavior.Restrict);
+
 
 
             });

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vpn/adEYvL+ZsPL6JM5j7eaIhP3s8OPdfgDmrIhmhaPl5a0TMaJY1U5spVut88JXFqNiRNUfNw95MUewXg2FWA==",
+  "dgSpecHash": "Sjt3RURph/SWySUpxmDnkBcQMxVCrivT8RT1BDXyrXXicRyg01uQwIWyBXjnqimHDS2+JE1vD0M7w7oR6gU4TA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dimitar.sotirov\\Desktop\\MedTracker\\New folder\\MedTracker\\MedTracker.Services\\MedTracker.Services.csproj",
+  "projectFilePath": "C:\\Users\\dimitar.sotirov\\source\\repos\\MedTracker\\MedTracker.Services\\MedTracker.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dimitar.sotirov\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.3\\microsoft.aspnetcore.http.features.5.0.3.nupkg.sha512",
     "C:\\Users\\dimitar.sotirov\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",

@@ -15,7 +15,8 @@ namespace MedTracker.Models
         public int PatientId { get; set; }
         public Patient Patient { get; set; }
 
-        public DateTime Date { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
 
         public AppReason Reason { get; set; }
 
